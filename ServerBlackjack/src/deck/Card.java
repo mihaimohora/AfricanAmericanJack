@@ -35,7 +35,7 @@ public class Card implements Serializable{
         }
         if(value == 13)
         {
-            return "Kind of " + culori;
+            return "King of " + culori; // TYPo correction
         }
         return value + " of " + culori;
     }

@@ -58,8 +58,9 @@ public class Serverthread implements Runnable{
             objectOutputStream = new ObjectOutputStream(socketClient.getOutputStream());
             objectOutputStream.flush();
             objectInputStream = new ObjectInputStream(socketClient.getInputStream());
-            //System.out.print(server.getDealer().getHand().get(0));
-            objectOutputStream.writeObject("Dealer has:" + server.getDealer().getHand().get(0)); //Trimit doar prima carte a dealerului.
+            server.setDealer(new Player(server.deck.getCard(), server.deck.getCard()));
+            objectOutputStream.writeObject("Dealer has:" + server.getDealer().getHand().get(0)); // AICI nu merge prea bine. Probabil ca pune in stream dar nu citeste clientul.
+            System.out.print("dupa dealer has");//Trimit doar prima carte a dealerului.
             objectOutputStream.flush();
             while(!server.getGameEnded()){
                 if(!finished && !wait) {
