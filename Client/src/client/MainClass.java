@@ -7,7 +7,7 @@ import java.io.IOException;
 public class MainClass {
     public static void main (String[] argc)
     {
-        ClientClass client = new ClientClass("188.25.25.216", 9797); // momentan ar trebui sa fim conectati
+        ClientClass client = new ClientClass("192.168.1.1", 69); // momentan ar trebui sa fim conectati
         client.play();
     }
 }

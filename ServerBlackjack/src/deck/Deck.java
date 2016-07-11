@@ -1,10 +1,11 @@
 package deck;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 
 public class Deck {
-    ArrayList<Card> pachet;
+    private ArrayList<Card> pachet;
 
     public Deck(){
         pachet = new ArrayList<Card>();
@@ -15,10 +16,6 @@ public class Deck {
             pachet.add(new Card(i,"Hearts"));
             pachet.add(new Card(i,"Spades"));
         }
-        shuffle();
-    }
-
-    public void shuffle(){
         Collections.shuffle(pachet);
     }
 

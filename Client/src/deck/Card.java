@@ -9,10 +9,10 @@ public class Card implements Serializable{
     private int value;
     private String culori;
 
-    Card(int value, String culori)
-    {
+    Card(int value, String culori){
         this.value = value;
         this.culori = culori;
+
     }
 
     public int getValue(){

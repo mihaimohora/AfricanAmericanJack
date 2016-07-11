@@ -8,11 +8,13 @@ public class Player {
     private ArrayList<Card> hand;
     private ArrayList<Integer> total;
 
-    public ArrayList<Card> getHand() {
+    public ArrayList<Card> getHand()
+    {
         return hand;
     }
 
-    public ArrayList<Integer> getTotal() {
+    public ArrayList<Integer> getTotal()
+    {
         return total;
     }
 
@@ -39,7 +41,11 @@ public class Player {
         else addValue(card2.getValue());
     }
 
-    public void addValue(int x){
+    public void addValue(int x)
+    {
+        if (x > 10)
+            x = 10;
+
         for(int i=0;i<total.size();i++){
             total.set(i,total.get(i) + x);
             if(total.get(i) > 21) {
@@ -51,14 +57,17 @@ public class Player {
 
     public void addAce(){
         int dimensiune = total.size();
+
         for(int i=0;i<dimensiune;i++)
         {
             total.add(total.get(i) + 11);
         }
+
         for(int i=0;i<dimensiune;i++)
         {
             total.set(i,total.get(i) + 1);
         }
+
         for(int i=0;i<total.size();i++)
         {
             if(total.get(i) > 21) {
