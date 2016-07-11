@@ -1,12 +1,9 @@
 package server;
 
 import deck.Card;
-
 import java.util.ArrayList;
 
 public class Player {
-
-
 
     private ArrayList<Card> hand;
     private ArrayList<Integer> total;
@@ -21,13 +18,19 @@ public class Player {
 
     public Player(Card card1, Card card2)
     {
+
         hand = new ArrayList<Card>();
+        total = new ArrayList<Integer>();
+
         hand.add(card1);
         hand.add(card2);
-        total.add(0);
+        int x = 0;
+        total.add(x);
+
         if(card1.getValue() == 1){
             addAce();
         }
+
         else addValue(card1.getValue());
 
         if(card2.getValue() == 1){

@@ -21,12 +21,15 @@ public class Server {
     ArrayList<Serverthread> threads;
 
     Deck deck;
+
     private Player dealer;
     private volatile boolean gameEnded;
 
     public Player getDealer() {
         return dealer;
     }
+
+    public void setDealer(Player dealer) { this.dealer = dealer; }
 
     public boolean getGameEnded() {
         return gameEnded;
@@ -52,9 +55,8 @@ public class Server {
         {
 
             try {
-                System.out.print("Ceva");
+
                 socket = serverSocket.accept();
-                System.out.print("Ceva");
                 threads.add(new Serverthread(socket, this));
                 executorService.execute(threads.get(threads.size()-1));
 
@@ -74,9 +76,10 @@ public class Server {
             card1 = deck.getCard();
             card2 = deck.getCard();
             try {
+
                 Player player = new Player(card1,card2);
                 threads.get(i).setPlayer(player);
-                threads.get(i).getObjectOutputStream().writeObject("You were dealt: " + player.getHand());
+                threads.get(i).getObjectOutputStream().writeObject("You were dealt: " + player.getHand()); // AICI CRAPA
                 threads.get(i).getObjectOutputStream().writeObject("Your sums are:" + player.getTotal());
             } catch (IOException e) {
                 e.printStackTrace();
